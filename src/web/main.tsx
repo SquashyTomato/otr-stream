@@ -8,12 +8,12 @@ import './styles/main.css';
 
 // Import Pages
 import App from './views/pages/App.tsx';
-import Overlay from './views/pages/Overlay.tsx';
+import Live from './views/pages/Live.tsx';
 
 // Define React Router
 const Router = createBrowserRouter([
     { path: '/', element: <App /> },
-    { path: '/overlay', element: <Overlay /> },
+    { path: '/live', element: <Live /> },
 ]);
 
 // Render React App

@@ -8,15 +8,13 @@
     "type": "module",
     "private": true,
     "engineStrict": true,
-    "main": ".vite/build/main.js",
+    "main": "dist/app/main.js",
     "packageManager": "yarn@1.22.22",
     "scripts": {
         "dev": "vite",
         "build": "tsc -b && vite build",
         "preview": "vite preview",
-        "start": "electron-forge start",
-        "package": "electron-forge package",
-        "make": "electron-forge make",
+        "start": "electron .",
         "lint": "eslint src/**/*.{ js,cjs,mjs,ts }",
         "lint:fix": "eslint src/**/*.{ js,cjs,mjs,ts } --fix"
     },
@@ -26,10 +24,6 @@
         "react-router-dom": "^7.7.1"
     },
     "devDependencies": {
-        "@electron-forge/cli": "^7.8.1",
-        "@electron-forge/plugin-fuses": "^7.8.1",
-        "@electron-forge/plugin-vite": "^7.8.2",
-        "@electron/fuses": "^1.8.0",
         "@eslint/js": "^9.32.0",
         "@tailwindcss/vite": "^4.1.11",
         "@types/node": "^24.1.0",
