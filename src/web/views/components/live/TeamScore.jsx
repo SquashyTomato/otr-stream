@@ -1,15 +1,8 @@
 // Import Modules
 import clsx from 'clsx';
 
-// Define Properties
-type Props = {
-    id?: string;
-    alignment: 'left' | 'right';
-    color: 'blue' | 'red';
-};
-
 // Component Function
-export default function Component({ id, alignment, color }: Props) {
+export default function Component({ id, alignment, color }) {
     return (
         <div className={clsx(
             'flex flex-col space-y-1',

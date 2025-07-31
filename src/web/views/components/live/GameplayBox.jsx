@@ -1,13 +1,8 @@
 // Import Modules
 import clsx from 'clsx';
 
-// Define Properties
-type Props = {
-    color: 'blue' | 'red';
-};
-
 // Component Function
-export default function Component({ color }: Props) {
+export default function Component({ color }) {
     return (
         <div className={clsx(
             'w-[400px] h-[300px] outline-4 ',

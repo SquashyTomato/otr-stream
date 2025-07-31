@@ -1,8 +1,8 @@
 // Import Layout
-import Overlay from '../layouts/Overlay.tsx';
+import Overlay from '../layouts/Overlay.jsx';
 
 // Import Components
-import GameplayBox from '../components/GameplayBox.tsx';
+import GameplayBox from '../components/live/GameplayBox.jsx';
 
 // Page Function
 export default function Page() {

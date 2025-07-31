@@ -1,10 +1,7 @@
-// Import Modules
-import type { ReactNode } from 'react';
-
 // Import Components
-import BeatmapData from '../components/BeatmapData.tsx';
-import ContentBar from '../components/ContentBar.tsx';
-import TeamScore from '../components/TeamScore.tsx';
+import BeatmapData from '../components/live/BeatmapData.jsx';
+import ContentBar from '../components/live/ContentBar.jsx';
+import TeamScore from '../components/live/TeamScore.jsx';
 
 // Import Assets
 import BackgroundImage from '../../assets/overlay/background.png';
@@ -12,7 +9,7 @@ import ForegroundImage from '../../assets/overlay/foreground.png';
 import LogoImage from '../../assets/overlay/logo.png';
 
 // Layout Function
-export default function Layout({ children }: { children: ReactNode }) {
+export default function Layout({ children }) {
     return (
         <>
             <div className="relative w-screen h-screen overflow-hidden">

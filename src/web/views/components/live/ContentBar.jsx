@@ -1,17 +1,8 @@
 // Import Modules
 import clsx from 'clsx';
-import type { ReactNode } from 'react';
-
-// Define Properties
-type Props = {
-    alignment: 'top' | 'bottom';
-    left?: ReactNode;
-    middle?: ReactNode;
-    right?: ReactNode;
-};
 
 // Component Function
-export default function Component({ alignment, left, middle, right }: Props) {
+export default function Component({ alignment, left, middle, right }) {
     return (
         <div className={clsx(
             'fixed w-full h-[120px] bg-black/50',
