@@ -14,21 +14,18 @@
         "dev": "vite",
         "build": "vite build",
         "preview": "vite preview",
-        "start": "vite build && electron .",
         "lint": "eslint src/**/*.{ js,cjs,mjs,ts }",
         "lint:fix": "eslint src/**/*.{ js,cjs,mjs,ts } --fix"
     },
     "dependencies": {
         "react": "^19.1.1",
-        "react-dom": "^19.1.1",
-        "react-router-dom": "^7.7.1"
+        "react-dom": "^19.1.1"
     },
     "devDependencies": {
         "@eslint/js": "^9.32.0",
         "@tailwindcss/vite": "^4.1.11",
         "@vitejs/plugin-react": "^4.7.0",
         "clsx": "^2.1.1",
-        "electron": "^37.2.4",
         "eslint": "^9.32.0",
         "eslint-plugin-import": "^2.32.0",
         "eslint-plugin-react-hooks": "^5.2.0",
