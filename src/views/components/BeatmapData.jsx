@@ -9,8 +9,8 @@ export default function Component({ data }) {
                 <img src={`https://assets.ppy.sh/beatmaps/${data.menu.bm.set}/covers/cover@2x.jpg?1719944291`} className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-black/50" />
                 <div className="absolute inset-0 flex flex-col items-center justify-center">
-                    <h3 className="text-white text-lg font-bold">{data.menu.bm.metadata.artist} - {data.menu.bm.metadata.title}</h3>
-                    <h3 className="text-white">{data.menu.bm.metadata.difficulty}</h3>
+                    <h3 className="text-white text-lg text-center font-bold">{data.menu.bm.metadata.artist} - {data.menu.bm.metadata.title}</h3>
+                    <h3 className="text-white text-center">{data.menu.bm.metadata.difficulty}</h3>
                 </div>
             </div>
             <div className="flex flex-col space-y-4">
