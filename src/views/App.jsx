@@ -25,8 +25,8 @@ export default function Page() {
     // WebSocket Connection
     useEffect(() => {
         // Connect to WebSocket Server
-        WebSocketClient.connect('127.0.0.1:24050');
-        //WebSocketClient.connect(window.location.host);
+        if (import.meta.env.DEV) WebSocketClient.connect('127.0.0.1:24050');
+        else WebSocketClient.connect(window.location.host);
 
         // Handle Incoming Messages
         const handleMessage = (data) => {
