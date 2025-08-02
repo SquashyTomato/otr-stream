@@ -15,7 +15,7 @@ export default function Component({ data, alignment, color }) {
                 'items-end text-right': alignment === 'right',
             }
         )}>
-            <h3 className="text-white text-2xl font-bold">{data.tourney.manager.teamName[alignment]}</h3>
+            <h3 className="text-white text-4xl font-bold">{data.tourney.manager.teamName[alignment]}</h3>
             <div className="flex justify-between space-x-3">
                 {Array.from({ length: currentPoints }, (_, index) => (
                     <div key={index} className={clsx(
