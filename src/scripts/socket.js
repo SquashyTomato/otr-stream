@@ -14,7 +14,7 @@ class WebSocketClient {
         // WebSocket Event Handlers
         this.socket.onopen = () => console.log('[WS] Connection Established');
         this.socket.onclose = () => console.log('[WS] Connection Closed');
-        this.socket.onerror = (error) => console.error('[WS] Error:\n', error);
+        this.socket.onerror = (error) => console.error(`[WS] Error:\n ${error}`);
 
         this.socket.onmessage = (event) => {
             console.log('[WS] Message Received');

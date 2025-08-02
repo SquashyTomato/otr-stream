@@ -25,17 +25,17 @@ export default function Page() {
     // WebSocket Connection
     useEffect(() => {
         // Connect to WebSocket Server
-        //WebSocketClient.connect('127.0.0.1:24050');
-        WebSocketClient.connect(window.location.host);
+        WebSocketClient.connect('127.0.0.1:24050');
+        //WebSocketClient.connect(window.location.host);
 
         // Handle Incoming Messages
         const handleMessage = (data) => {
-            console.log('[CLIENT] Data recieved from WebSocket Server');
+            console.log(`[CLIENT] Data recieved from WebSocket Server:\n ${data}`);
             try {
                 const parsed = JSON.parse(data);
                 setData(parsed);
             } catch (error) {
-                console.error('[CLIENT] Error parsing WebSocket data:\n', error);
+                console.error(`[CLIENT] Error parsing WebSocket data:\n ${error}`);
             }
         };
 
@@ -50,6 +50,9 @@ export default function Page() {
             WebSocketClient.close();
         };
     }, []);
+
+    // Get IPC Client Data
+    const teamSize = 3;
 
     // Check if Data is Available and output the following message if not.
     if (!data) {
@@ -88,14 +91,14 @@ export default function Page() {
                     <div className="fixed inset-0 flex items-center justify-center">
                         <div className="flex flex-col items-center space-y-4">
                             <div className="flex space-x-6">
-                                {Array.from({ length: 3 }, (_, index) => (
-                                    <GameplayBox key={index} color="blue" />
+                                {Array.from({ length: teamSize }, (_, index) => (
+                                    <GameplayBox key={index} number={index} color="blue" data={data} />
                                 ))}
                             </div>
                             <MatchScore data={data} />
                             <div className="flex space-x-6">
-                                {Array.from({ length: 3 }, (_, index) => (
-                                    <GameplayBox key={index} color="red" />
+                                {Array.from({ length: teamSize }, (_, index) => (
+                                    <GameplayBox key={index} number={teamSize + index} color="red" data={data} />
                                 ))}
                             </div>
                         </div>
