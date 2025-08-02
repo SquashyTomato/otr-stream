@@ -1,0 +1,10 @@
+[
+    {
+        "uniqueID": "teamSize",
+        "type": "number",
+        "title": "Team Size",
+        "description": "Enter in the size of the Teams",
+        "options": [],
+        "value": 3
+    }
+]
