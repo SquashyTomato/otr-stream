@@ -15,13 +15,13 @@ export default function Component({ data }) {
             </div>
             <div className="flex flex-col space-y-4">
                 <div className="flex space-x-4">
-                    <div className="flex flex-row space-x-1 bg-tourney-gray w-16 outline-4 outline-tourney-gray">
+                    <div className="flex flex-row space-x-1 bg-tourney-gray w-18 outline-4 outline-tourney-gray">
                         <p className="text-white font-bold">CS |</p><p className="text-white">{data.menu.bm.stats.CS}</p>
                     </div>
-                    <div className="flex flex-row space-x-1 bg-tourney-gray w-16 outline-4 outline-tourney-gray">
+                    <div className="flex flex-row space-x-1 bg-tourney-gray w-18 outline-4 outline-tourney-gray">
                         <p className="text-white font-bold">AR |</p><p className="text-white">{data.menu.bm.stats.AR}</p>
                     </div>
-                    <div className="flex flex-row space-x-1 bg-tourney-gray w-16 outline-4 outline-tourney-gray">
+                    <div className="flex flex-row space-x-1 bg-tourney-gray w-18 outline-4 outline-tourney-gray">
                         <p className="text-white font-bold">OD |</p><p className="text-white">{data.menu.bm.stats.OD}</p>
                     </div>
                 </div>
