@@ -21,8 +21,8 @@ export default function Component({ data, alignment, color }) {
                     <div key={index} className={clsx(
                         'w-5 h-5 outline-2',
                         {
-                            'bg-red-700 outline-red-700': color === 'red',
-                            'bg-blue-700 outline-blue-700': color === 'blue',
+                            'bg-tourney-red outline-tourney-red': color === 'red',
+                            'bg-tourney-blue outline-tourney-blue': color === 'blue',
                         },
                     )}></div>
                 ))}
@@ -30,8 +30,8 @@ export default function Component({ data, alignment, color }) {
                     <div key={index} className={clsx(
                         'w-5 h-5 outline-2',
                         {
-                            'outline-red-700': color === 'red',
-                            'outline-blue-700': color === 'blue',
+                            'outline-tourney-red': color === 'red',
+                            'outline-tourney-blue': color === 'blue',
                         },
                     )}></div>
                 ))}

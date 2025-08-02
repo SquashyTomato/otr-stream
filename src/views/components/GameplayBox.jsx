@@ -7,15 +7,15 @@ export default function Component({ color }) {
         <div className={clsx(
             'w-[400px] h-[300px] outline-4 ',
             {
-                'outline-red-700/80': color === 'red',
-                'outline-blue-700/80': color === 'blue',
+                'outline-tourney-red': color === 'red',
+                'outline-tourney-blue': color === 'blue',
             }
         )}>
             <div className={clsx(
                 'top-0 w-full h-4',
                 {
-                    'bg-red-700/80': color === 'red',
-                    'bg-blue-700/80': color === 'blue',
+                    'bg-tourney-red': color === 'red',
+                    'bg-tourney-blue': color === 'blue',
                 }
             )}>
             </div>

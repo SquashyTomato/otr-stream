@@ -5,13 +5,15 @@ import { useEffect, useState } from 'react';
 import BeatmapData from './components/BeatmapData.jsx';
 import ContentBar from './components/ContentBar.jsx';
 import GameplayBox from './components/GameplayBox.jsx';
+import MatchScore from './components/MatchScore.jsx';
 import TeamScore from './components/TeamScore.jsx';
 
 // Import Scripts
 import WebSocketClient from '../scripts/socket.js';
 
 // Import Assets
-import BackgroundImage from '../assets/overlay/background.png';
+//import BackgroundImage from '../assets/overlay/background.png';
+import BackgroundVideo from '../assets/overlay/background.mp4';
 import ForegroundImage from '../assets/overlay/foreground.png';
 import LogoImage from '../assets/overlay/logo.png';
 
@@ -22,13 +24,13 @@ export default function Page() {
 
     // WebSocket Connection
     useEffect(() => {
+        // Connect to WebSocket Server
         //WebSocketClient.connect('127.0.0.1:24050');
         WebSocketClient.connect(window.location.host);
 
+        // Handle Incoming Messages
         const handleMessage = (data) => {
-            console.log('[CLIENT] Data recieved from WebSocket Server:');
-            //{JSON.stringify(data.tourney, null, 2)}
-            console.log(data.tourney);
+            console.log('[CLIENT] Data recieved from WebSocket Server');
             try {
                 const parsed = JSON.parse(data);
                 setData(parsed);
@@ -37,23 +39,33 @@ export default function Page() {
             }
         };
 
+        // Subscribe to WebSocket Messages
+        console.log('[CLIENT] Subscribing to WebSocket Messages');
         WebSocketClient.subscribe(handleMessage);
 
         return () => {
+            // Cleanup WebSocket Connection
+            console.log('[CLIENT] Unsubscribing from WebSocket Messages and closing connection');
             WebSocketClient.unsubscribe(handleMessage);
             WebSocketClient.close();
         };
     }, []);
 
+    // Check if Data is Available and output the following message if not.
     if (!data) {
-        return <div className="flex items-center justify-center h-screen text-white">Loading...</div>;
+        return <div className="flex flex-col items-center justify-center h-screen">
+            <h1 className="text-4xl font-bold text-white">Waiting for data from the WebSocket Server...</h1>
+            <p className="text-lg text-white/70">Please make sure tosu is running and the osu! Tournament Client is running.</p>
+            <p className="text-sm text-white/50">If everything is running correctly, you can try refreshing the page or open the browser console and check for errors.</p>
+        </div>
     };
 
     return (
         <>
             <div className="relative w-screen h-screen overflow-hidden">
                 {/* Background and Foreground Assets */}
-                <img src={BackgroundImage} className="absolute inset-0 w-full h-full object-cover aspect-video -z-10" />
+                {/* <img src={BackgroundImage} className="absolute inset-0 w-full h-full object-cover aspect-video -z-10" /> */}
+                <video src={BackgroundVideo} autoPlay loop muted className="absolute inset-0 w-full h-full object-cover aspect-video -z-10" />
                 <img src={ForegroundImage} className="absolute inset-0 w-full h-full object-cover aspect-video z-10" />
 
                 {/* Overlay Contents */}
@@ -74,19 +86,13 @@ export default function Page() {
 
                     {/* Overlay Specifics */}
                     <div className="fixed inset-0 flex items-center justify-center">
-                        <div className="flex flex-col space-y-24">
+                        <div className="flex flex-col items-center space-y-4">
                             <div className="flex space-x-6">
                                 {Array.from({ length: 3 }, (_, index) => (
                                     <GameplayBox key={index} color="blue" />
                                 ))}
                             </div>
-                            <div className="fixed inset-0 flex items-center justify-center">
-                                <div className="flex flex-row space-x-2 text-4xl font-bold mt-24">
-                                    <h1 className="text-white/80">{data.tourney.manager.gameplay.score.left.toLocaleString()}</h1>
-                                    <h1 className="text-white/30">-</h1>
-                                    <h1 className="text-white/80">{data.tourney.manager.gameplay.score.right.toLocaleString()}</h1>
-                                </div>
-                            </div>
+                            <MatchScore data={data} />
                             <div className="flex space-x-6">
                                 {Array.from({ length: 3 }, (_, index) => (
                                     <GameplayBox key={index} color="red" />

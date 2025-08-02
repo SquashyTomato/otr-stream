@@ -7,4 +7,7 @@
 /* Define Tailwind Theme */
 @theme {
     --font-sans: "Albert Sans", sans-serif;
+    --color-tourney-blue: #1315A7;
+    --color-tourney-red: #B31A67;
+    --color-tourney-gray: #3B3B3B;
 }
