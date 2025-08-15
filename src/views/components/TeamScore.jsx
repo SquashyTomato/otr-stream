@@ -3,7 +3,8 @@ import clsx from 'clsx';
 
 // Component Function
 export default function Component({ data, alignment, color }) {
-    const pointsToWin = Math.floor((parseInt(data.tourney.manager.bestOF) / 2) + 1);
+    const bestOf = parseInt(data.tourney.manager.bestOF);
+    const pointsToWin = Math.floor((bestOf / 2) + 1);
     const currentPoints = parseInt(data.tourney.manager.stars[alignment]);
     const remainingPoints = pointsToWin - currentPoints;
 

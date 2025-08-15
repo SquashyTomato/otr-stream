@@ -52,7 +52,7 @@ export default function Page() {
     }, []);
 
     // Get IPC Client Data
-    const teamSize = 3;
+    const teamSize = 4;
 
     // Check if Data is Available and output the following message if not.
     if (!data) {
